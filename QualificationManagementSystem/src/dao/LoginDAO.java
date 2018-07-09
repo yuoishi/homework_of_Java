@@ -55,6 +55,7 @@ public class LoginDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		Login login = new Login();
 
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
@@ -62,9 +63,13 @@ public class LoginDAO {
 					"userQ", "password");
 			String sql = "select id, pw, name from login where id = ? and pw = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, login.getId());
-			pstmt.setString(2, login.getPw());
-			pstmt.setString(3, login.getName());
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			rs = pstmt.executeQuery();
+			rs.next();
+			login.setId(rs.getString("id"));
+			login.setPw(rs.getString("pw"));
+			login.setName(rs.getString("name"));
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}catch(SQLException e){
@@ -94,5 +99,6 @@ public class LoginDAO {
 
 			}
 		}
+		return login;
 	}
 }
