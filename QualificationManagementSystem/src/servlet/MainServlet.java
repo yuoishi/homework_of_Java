@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ExManaDAO;
 import dao.LoginDAO;
+import dto.ExMana;
 import dto.Login;
 
 /**
@@ -32,6 +34,31 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String flg = request.getParameter("flg");
+
+		/*受験データを登録する処理*/
+		if("emR".equals(flg)){
+			String year = request.getParameter("year");
+			String month = request.getParameter("month");
+			String day = request.getParameter("day");
+
+			/*0埋め*/
+			if(Integer.parseInt(month) < 10){
+				month = "0" + month;
+			}
+			if(Integer.parseInt(day) < 10){
+				day = "0" + day;
+			}
+
+			String date = year + "-" + month + "-" + day;
+			String no = request.getParameter("no");
+			String qName = request.getParameter("qname");
+			String sorf = request.getParameter("sorf");
+
+			ExMana exmana = new ExMana(date, no, null, qName, sorf);
+			int row = ExManaDAO.register(exmana);
+		}
+
 		String view = "/WEB-INF/view/main.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
