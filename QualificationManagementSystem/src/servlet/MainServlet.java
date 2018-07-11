@@ -47,13 +47,14 @@ public class MainServlet extends HttpServlet {
 
 		HttpSession hs = request.getSession();
 		if(id.equals(login.getId()) && pw.equals(login.getPw())){
+			/*ログインに成功したらスコープにユーザ情報を登録*/
 			hs.setAttribute("login", login);
 			doGet(request, response);
 		}else{
+			/*ログインに失敗したらトップページに戻す*/
 			String view = "/WEB-INF/view/top.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 		}
-
 	}
 }
