@@ -12,8 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import dao.ExManaDAO;
 import dao.LoginDAO;
+import dao.StudentDAO;
 import dto.ExMana;
 import dto.Login;
+import dto.Student;
 
 /**
  * Servlet implementation class MainServlet
@@ -57,6 +59,17 @@ public class MainServlet extends HttpServlet {
 
 			ExMana exmana = new ExMana(date, no, null, qName, sorf);
 			int row = ExManaDAO.register(exmana);
+		}
+
+		/*学生データを登録する処理*/
+		if("sR".equals("flg")){
+			String no = request.getParameter("no");
+			String name = request.getParameter("name");
+			int grade = Integer.parseInt(request.getParameter("grade"));
+			int clas = Integer.parseInt(request.getParameter("class"));
+
+			Student student = new Student(no, name, grade, clas);
+			int row = StudentDAO.register(student);
 		}
 
 		String view = "/WEB-INF/view/main.jsp";
