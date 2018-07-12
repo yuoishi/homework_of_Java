@@ -101,9 +101,11 @@ public class MainServlet extends HttpServlet {
 		if(row > 0){
 			request.setAttribute("flg", flg);
 			view += "registrationCompletion.jsp";
-		}else{
+		}else if(row == 0){
 			request.setAttribute("flg", flg);
 			view += "registrationError.jsp";
+		}else{
+			view += "main.jsp";
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
