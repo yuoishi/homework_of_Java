@@ -38,7 +38,10 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String view = "/WEB-INF/view/";
+
 		String flg = request.getParameter("flg");
+		int row = 0;
 
 		/*受験データを登録する処理*/
 		if("emR".equals(flg)){
@@ -60,7 +63,7 @@ public class MainServlet extends HttpServlet {
 			String sorf = request.getParameter("sorf");
 
 			ExMana exmana = new ExMana(date, no, null, qName, sorf);
-			int row = ExManaDAO.register(exmana);
+			row = ExManaDAO.register(exmana);
 		}
 
 		/*学生データを登録する処理*/
@@ -71,7 +74,7 @@ public class MainServlet extends HttpServlet {
 			int clas = Integer.parseInt(request.getParameter("class"));
 
 			Student student = new Student(no, name, grade, clas);
-			int row = StudentDAO.register(student);
+			row = StudentDAO.register(student);
 		}
 
 		/*資格データを登録する処理*/
@@ -81,7 +84,7 @@ public class MainServlet extends HttpServlet {
 			int qGrade = Integer.parseInt(request.getParameter("qgrade"));
 
 			Qualification qualification = new Qualification(qId, qName, qGrade);
-			int row = QualificationDAO.register(qId, qName, qGrade);
+			row = QualificationDAO.register(qId, qName, qGrade);
 		}
 
 		/*アカウントデータを登録する処理*/
@@ -91,10 +94,18 @@ public class MainServlet extends HttpServlet {
 			String tName = request.getParameter("tname");
 
 			Login account = new Login(id, pw, tName);
-			int row = LoginDAO.register(account);
+			row = LoginDAO.register(account);
 		}
 
-		String view = "/WEB-INF/view/main.jsp";
+		/*登録完了したか確認*/
+		if(row > 0){
+			request.setAttribute("flg", flg);
+			view += "registrationCompletion.jsp";
+		}else{
+			request.setAttribute("flg", flg);
+			view += "registrationError.jsp";
+		}
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
