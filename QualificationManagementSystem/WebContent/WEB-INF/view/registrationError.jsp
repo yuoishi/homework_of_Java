@@ -7,7 +7,16 @@
 <title>登録失敗 | 資格取得状況管理システム</title>
 </head>
 <body>
-	<p>の登録に失敗しました。</p>
+	<%
+		String flg = (String)request.getAttribute("flg");
+		switch(flg){
+		case "emR": flg = "受験データ"; break;
+		case "sR": flg = "学生データ"; break;
+		case "qR": flg = "資格データ"; break;
+		case "aR": flg = "アカウント"; break;
+		}
+	%>
+	<p><%= flg %>の登録に失敗しました。</p>
 	<form action="Main" method="get">
 		<input type="submit" value="メインページへ">
 	</form>
