@@ -12,9 +12,11 @@ import javax.servlet.http.HttpSession;
 
 import dao.ExManaDAO;
 import dao.LoginDAO;
+import dao.QualificationDAO;
 import dao.StudentDAO;
 import dto.ExMana;
 import dto.Login;
+import dto.Qualification;
 import dto.Student;
 
 /**
@@ -70,6 +72,16 @@ public class MainServlet extends HttpServlet {
 
 			Student student = new Student(no, name, grade, clas);
 			int row = StudentDAO.register(student);
+		}
+
+		/*資格データを登録する処理*/
+		if("qR".equals("flg")){
+			int qId = Integer.parseInt(request.getParameter("qid"));
+			String qName = request.getParameter("qname");
+			int qGrade = Integer.parseInt(request.getParameter("qgrade"));
+
+			Qualification qualification = new Qualification(qId, qName, qGrade);
+			int row = QualificationDAO.register(qId, qName, qGrade);
 		}
 
 		String view = "/WEB-INF/view/main.jsp";
