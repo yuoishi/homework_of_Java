@@ -84,6 +84,16 @@ public class MainServlet extends HttpServlet {
 			int row = QualificationDAO.register(qId, qName, qGrade);
 		}
 
+		/*アカウントデータを登録する処理*/
+		if("aR".equals("flg")){
+			String id = request.getParameter("id");
+			String pw = request.getParameter("pw");
+			String tName = request.getParameter("tname");
+
+			Login account = new Login(id, pw, tName);
+			int row = LoginDAO.register(account);
+		}
+
 		String view = "/WEB-INF/view/main.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
