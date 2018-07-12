@@ -9,15 +9,15 @@
 <body>
 	<form action="Main" method="get">
 		<label>ID：
-			<input type="text">
+			<input type="text" name="id">
 		</label><br>
 
 		<label>PW：
-			<input type="password">
+			<input type="password" name="pw">
 		</label><br>
 
 		<label>先生の名前：
-			<input type="text">
+			<input type="text" name="tname">
 		</label><br>
 
 		<input type="hidden" name="flg" value="aR">
