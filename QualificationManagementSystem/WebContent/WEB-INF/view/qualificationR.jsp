@@ -9,15 +9,15 @@
 <body>
 	<form action="Main" method="get">
 		<label>資格ID：
-			<input type="number">
+			<input type="number" name="qid">
 		</label><br>
 
 		<label>資格名：
-			<input type="text">
+			<input type="text" name="qname">
 		</label><br>
 
 		<label>資格グレード：
-			<select name="grade">
+			<select name="grade" name="qgrade">
 				<% for(int i = 1; i <= 5; i++){ %>
 					<option value=<%= i %>><%= i %></option>
 				<% } %>
