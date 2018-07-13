@@ -41,7 +41,7 @@ public class MainServlet extends HttpServlet {
 		String view = "/WEB-INF/view/";
 
 		String flg = request.getParameter("flg");
-		int row = 0;
+		int row = -1;
 
 		/*受験データを登録する処理*/
 		if("emR".equals(flg)){
@@ -67,7 +67,7 @@ public class MainServlet extends HttpServlet {
 		}
 
 		/*学生データを登録する処理*/
-		if("sR".equals("flg")){
+		if("sR".equals(flg)){
 			String no = request.getParameter("no");
 			String name = request.getParameter("name");
 			int grade = Integer.parseInt(request.getParameter("grade"));
@@ -78,7 +78,7 @@ public class MainServlet extends HttpServlet {
 		}
 
 		/*資格データを登録する処理*/
-		if("qR".equals("flg")){
+		if("qR".equals(flg)){
 			int qId = Integer.parseInt(request.getParameter("qid"));
 			String qName = request.getParameter("qname");
 			int qGrade = Integer.parseInt(request.getParameter("qgrade"));
@@ -88,7 +88,7 @@ public class MainServlet extends HttpServlet {
 		}
 
 		/*アカウントデータを登録する処理*/
-		if("aR".equals("flg")){
+		if("aR".equals(flg)){
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
 			String tName = request.getParameter("tname");
@@ -120,16 +120,18 @@ public class MainServlet extends HttpServlet {
 		String pw = request.getParameter("pw");
 		Login login = LoginDAO.search(id, pw);
 
+		String view = "/WEB-INF/view/";
+
 		HttpSession hs = request.getSession();
 		if(id.equals(login.getId()) && pw.equals(login.getPw())){
 			/*ログインに成功したらスコープにユーザ情報を登録*/
 			hs.setAttribute("login", login);
-			doGet(request, response);
+			view += "main.jsp";
 		}else{
 			/*ログインに失敗したらトップページに戻す*/
-			String view = "/WEB-INF/view/top.jsp";
-			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-			dispatcher.forward(request, response);
+			view += "top.jsp";
 		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+		dispatcher.forward(request, response);
 	}
 }
