@@ -8,7 +8,7 @@ import dto.Student;
 public class StudentDAOTest {
 
 	public static void main(String[] args) {
-		Student student = new Student("4181141", "テストです", 1, 1);
+		Student student = new Student("4181142", "テスト2", 1, 1);
 		int result = StudentDAO.register(student);
 		if(result != 0){
 			System.out.println("テスト成功");
