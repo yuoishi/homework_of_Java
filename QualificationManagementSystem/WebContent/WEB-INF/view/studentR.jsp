@@ -9,11 +9,11 @@
 <body>
 	<form action="Main" method="get">
 		<label>学籍番号：
-			<input type="text">
+			<input type="text" name="no">
 		</label><br>
 
 		<label>氏名：
-			<input type="text">
+			<input type="text" name="name">
 		</label><br>
 
 		<label>学年：
