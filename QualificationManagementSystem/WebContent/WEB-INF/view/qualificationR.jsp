@@ -17,7 +17,7 @@
 		</label><br>
 
 		<label>資格グレード：
-			<select name="grade" name="qgrade">
+			<select name="qgrade">
 				<% for(int i = 1; i <= 5; i++){ %>
 					<option value=<%= i %>><%= i %></option>
 				<% } %>
