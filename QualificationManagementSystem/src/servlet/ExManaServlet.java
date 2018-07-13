@@ -35,13 +35,23 @@ public class ExManaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String flg = request.getParameter("flg");
+		String scope = request.getParameter("scope");
+
 		String view = "/WEB-INF/view/";
 
 		if("0".equals(flg)){
-			/*「受験データ一覧表示」リンククリック時の処理*/
+			if("scope".equals(scope)){
+				/*学年・クラスごとに一覧を管理*/
+				int grade = Integer.parseInt(request.getParameter("grade"));
+				int clas = Integer.parseInt(request.getParameter("class"));
+				ArrayList<ExMana> list = ExManaDAO.show(grade, clas);
+				request.setAttribute("exmana", list);
+			}else{
+				/*「受験データ一覧表示」リンククリック時の処理*/
+				ArrayList<ExMana> list = ExManaDAO.show();
+				request.setAttribute("exmana", list);
+			}
 			view += "exmanaDL.jsp";
-			ArrayList<ExMana> list = ExManaDAO.show();
-			request.setAttribute("exmana", list);
 		}else{
 			/*「受験データ登録」リンククリック時の処理*/
 			view += "exmanaR.jsp";

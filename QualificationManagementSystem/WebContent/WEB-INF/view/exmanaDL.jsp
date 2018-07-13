@@ -12,6 +12,31 @@
 	<%
 		ArrayList<ExMana> list = (ArrayList<ExMana>)request.getAttribute("exmana");
 	%>
+
+	/*学年・クラスごとに一覧管理処理*/
+	<form action="ExMana" method="get">
+		<label>学年
+			<select name="grade">
+				<option value="0">-</option>
+				<% for(int i = 1; i <= 4; i++){ %>
+					<option value=<%= i %>><%= i %></option>
+				<% } %>
+			</select>
+		</label>
+
+		<label>組
+			<select name="class">
+				<option value="0">-</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+		</label>
+		<input type="submit" value="実行">
+
+		<input type="hidden" name="flg" value="0">
+		<input type="hidden" name="scope" value="scope">
+	</form>
+
 	<table>
 		<tr>
 			<th>受験日</th><th>学籍番号</th><th>学生氏名</th><th>資格名</th><th>合否</th>
@@ -28,5 +53,9 @@
 		<% } %>
 
 	</table>
+
+	<form action="ExMana" method="get">
+
+	</form>
 </body>
 </html>
