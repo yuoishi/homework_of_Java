@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.ExMana" %>
+<%@ page import="dto.Qualification" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,7 @@
 <body>
 	<%
 		ArrayList<ExMana> list = (ArrayList<ExMana>)request.getAttribute("exmana");
+		ArrayList<Qualification> qList = (ArrayList<Qualification>)request.getAttribute("qualification");
 	%>
 
 	/*学年・クラスごとに一覧管理処理*/
@@ -55,7 +57,16 @@
 	</table>
 
 	<form action="ExMana" method="get">
-
+		<label>資格名
+			<select name="qname">
+				<% for(Qualification q : qList){ %>
+					<option value=<%= q.getName() %>><%= q.getName() %></option>
+				<% } %>
+			</select>
+		</label>
+		<input type="submit" value="絞り込み">
+		<input type="hidden" name="flg" value="0">
+		<input type="hidden" name="extraction" value="extraction">
 	</form>
 </body>
 </html>
