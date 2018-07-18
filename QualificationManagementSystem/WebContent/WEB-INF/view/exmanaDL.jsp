@@ -39,6 +39,11 @@
 		<input type="hidden" name="scope" value="scope">
 	</form>
 
+	<form action="Student" method="get">
+		<input type="hidden" name="flg" value="0">
+		<input type="submit" value="学生一覧">
+	</form>
+
 	<table>
 		<tr>
 			<th>受験日</th><th>学籍番号</th><th>学生氏名</th><th>資格名</th><th>合否</th>
