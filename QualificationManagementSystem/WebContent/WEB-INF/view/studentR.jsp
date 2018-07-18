@@ -34,5 +34,9 @@
 		<input type="hidden" name="flg" value="sR">
 		<input type="submit" value="登録">
 	</form>
+	<form action="Main" method="get">
+		<input type="hidden" name="flg" value="cancel">
+		<input type="submit" value="戻る">
+	</form>
 </body>
 </html>
