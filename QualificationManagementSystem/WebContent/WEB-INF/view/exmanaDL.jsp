@@ -14,8 +14,8 @@
 		ArrayList<ExMana> list = (ArrayList<ExMana>)request.getAttribute("exmana");
 		ArrayList<Qualification> qList = (ArrayList<Qualification>)request.getAttribute("qualification");
 	%>
-
-	/*学年・クラスごとに一覧管理処理*/
+	<h1>受験データ一覧</h1>
+	<!--学年・クラスごとに一覧管理処理-->
 	<form action="ExMana" method="get">
 		<label>学年
 			<select name="grade">

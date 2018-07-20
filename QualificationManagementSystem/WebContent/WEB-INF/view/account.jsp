@@ -7,6 +7,7 @@
 <title>アカウント登録 | 資格取得状況管理システム</title>
 </head>
 <body>
+	<h1>アカウント登録</h1>
 	<form action="Main" method="get">
 		<label>ID：
 			<input type="text" name="id">

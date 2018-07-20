@@ -12,7 +12,7 @@
 	<%
 		ArrayList<Qualification> list = (ArrayList<Qualification>)request.getAttribute("qualification");
 	%>
-
+	<h1>受験データ登録</h1>
 	<form action="Main" method="get">
 		<label>受験日：
 			<select name="year">

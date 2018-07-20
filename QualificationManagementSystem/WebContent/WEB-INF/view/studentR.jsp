@@ -7,6 +7,7 @@
 <title>学生登録 | 資格取得状況管理システム</title>
 </head>
 <body>
+	<h1>学生登録</h1>
 	<form action="Main" method="get">
 		<label>学籍番号：
 			<input type="text" name="no">

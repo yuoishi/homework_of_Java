@@ -12,6 +12,7 @@
 	<%
 		ArrayList<Student> list = (ArrayList<Student>)request.getAttribute("student");
 	%>
+	<h1>学生一覧</h1>
 	<form action="ExMana" method="get">
 		<input type="hidden" name="flg" value="0">
 		<input type="submit" value="受験データ一覧">

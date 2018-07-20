@@ -7,6 +7,7 @@
 <title>資格登録 | 資格取得状況管理システム</title>
 </head>
 <body>
+	<h1>資格登録</h1>
 	<form action="Main" method="get">
 		<label>資格ID：
 			<input type="number" name="qid">

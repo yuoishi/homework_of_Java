@@ -7,6 +7,7 @@
 <title>資格取得状況管理システム</title>
 </head>
 <body>
+	<h1>資格取得状況管理システム</h1>
 	<a href="ExMana?flg=0">受験データ一覧表示</a><br>
 	<a href="ExMana?flg=1">受験データ登録</a><br>
 	<a href="Student?flg=0">学生一覧表示</a><br>

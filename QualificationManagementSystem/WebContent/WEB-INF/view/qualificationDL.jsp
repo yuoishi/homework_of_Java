@@ -12,6 +12,7 @@
 	<%
 		ArrayList<Qualification> list = (ArrayList<Qualification>)request.getAttribute("qualification");
 	%>
+	<h1>資格一覧</h1>
 	<table>
 		<tr>
 			<th>資格ID</th><th>資格名</th><th>資格グレード</th>
