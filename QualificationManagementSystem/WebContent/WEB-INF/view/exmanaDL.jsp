@@ -73,5 +73,11 @@
 		<input type="hidden" name="flg" value="0">
 		<input type="hidden" name="extraction" value="extraction">
 	</form>
+
+	<form action="ExMana" method="get">
+		<input type="submit" value="CSV出力">
+		<input type="hidden" name="flg" value="0">
+		<input type="hidden" name="csv" value="csv">
+	</form>
 </body>
 </html>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bo.CSVFileWriter;
 import dao.ExManaDAO;
 import dao.QualificationDAO;
 import dto.ExMana;
@@ -37,6 +38,7 @@ public class ExManaServlet extends HttpServlet {
 		String flg = request.getParameter("flg");
 		String scope = request.getParameter("scope");
 		String extraction = request.getParameter("extraction");
+		String csv = request.getParameter("csv");
 
 		String view = "/WEB-INF/view/";
 
@@ -51,6 +53,11 @@ public class ExManaServlet extends HttpServlet {
 				/*指定した資格の合格者のみ抽出する処理*/
 				String qName = request.getParameter("qname");
 				ArrayList<ExMana> list = ExManaDAO.show(qName);
+				request.setAttribute("exmana", list);
+			}else if("csv".equals(csv)){
+				/*「CSV出力」ボタンクリック時の処理*/
+				ArrayList<ExMana> list = ExManaDAO.show();
+				CSVFileWriter.output(list);
 				request.setAttribute("exmana", list);
 			}else{
 				/*「受験データ一覧表示」リンククリック時の処理*/
