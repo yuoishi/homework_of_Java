@@ -13,6 +13,12 @@
 		ArrayList<Qualification> list = (ArrayList<Qualification>)request.getAttribute("qualification");
 	%>
 	<h1>資格一覧</h1>
+
+	<form action="Main" method="get">
+		<input type="hidden" name="flg" value="main">
+		<input type="submit" value="メインページ">
+	</form>
+
 	<table>
 		<tr>
 			<th>資格ID</th><th>資格名</th><th>資格グレード</th>

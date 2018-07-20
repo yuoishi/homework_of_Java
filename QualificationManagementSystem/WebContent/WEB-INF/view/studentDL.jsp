@@ -18,6 +18,11 @@
 		<input type="submit" value="受験データ一覧">
 	</form>
 
+	<form action="Main" method="get">
+		<input type="hidden" name="flg" value="main">
+		<input type="submit" value="メインページ">
+	</form>
+
 	<table>
 		<tr>
 			<th>学籍番号</th><th>学年</th><th>組</th><th>学生氏名</th>
