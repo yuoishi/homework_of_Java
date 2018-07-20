@@ -1,10 +1,52 @@
-@charset utf-8
+@charset utf-8;
 
-h1,h2,h3,p,div{
+h1,h2,h3,p,div {
 	margin: 0;
 	padding: 0;
 }
 
-body{
+body {
+	margin: 20px 0 0;
+	padding: 0;
+}
+
+#main {
+	width: 1000px;
+	height: 600px;
+	margin: 0 auto;
 	background: #dddddd;
+	text-align: center;
+}
+
+.top {
+	padding: 70px 0 50px;
+}
+
+h1.top {
+	font-size: 50px;
+}
+
+input[type="submit"].login {
+	margin-top: 30px;
+}
+
+h1 {
+	font-size: 34px;
+}
+
+label {
+	font-size: 22px;
+}
+
+input[type="text"], input[type="password"] {
+	margin-left: 10px;
+}
+
+input[type="submit"] {
+	width: 300px;
+	height: 50px;
+	font-size: 22px;
+	font-weight: bold;
+	border-radius: 25px;
+	background: #4466ff;
 }
