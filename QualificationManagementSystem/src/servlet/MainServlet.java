@@ -91,9 +91,10 @@ public class MainServlet extends HttpServlet {
 		if("aR".equals(flg)){
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
+			String password = LoginDAO.hash(pw);
 			String tName = request.getParameter("tname");
 
-			Login account = new Login(id, pw, tName);
+			Login account = new Login(id, password, tName);
 			row = LoginDAO.register(account);
 		}
 
