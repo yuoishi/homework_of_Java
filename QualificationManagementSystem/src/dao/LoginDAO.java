@@ -101,4 +101,52 @@ public class LoginDAO {
 		}
 		return login;
 	}
+
+	public static String hash(String pw){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String password = null;
+
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/qualification?useSSL=false",
+					"userQ", "password");
+			String sql = "select password(\"" + pw + "\") as pw";
+			pstmt = con.prepareStatement(sql);
+//			pstmt.setString(1, pw);
+			rs = pstmt.executeQuery();
+			rs.next();
+			password = rs.getString("pw");
+		}catch(ClassNotFoundException e){
+			e.printStackTrace();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			try{
+				if(rs != null){
+					rs.close();
+				}
+			}catch(SQLException e){
+
+			}
+
+			try{
+				if(pstmt != null){
+					pstmt.close();
+				}
+			}catch(SQLException e){
+
+			}
+
+			try{
+				if(con != null){
+					con.close();
+				}
+			}catch(SQLException e){
+
+			}
+		}
+		return password;
+	}
 }

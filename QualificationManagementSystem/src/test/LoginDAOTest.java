@@ -13,9 +13,13 @@ public class LoginDAOTest {
 //		}else{
 //			System.out.println("テスト失敗");
 //		}
-		Login test = LoginDAO.search("a", "a");
-		System.out.println(test.getId());
-		System.out.println(test.getPw());
+//		Login test = LoginDAO.search("a", "a");
+//		System.out.println(test.getId());
+//		System.out.println(test.getPw());
+//		System.out.println(test.getName());
+		String pw = LoginDAO.hash("admin");
+		System.out.println(pw);
+		Login test = LoginDAO.search("admin", pw);
 		System.out.println(test.getName());
 	}
 }

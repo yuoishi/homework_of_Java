@@ -118,12 +118,13 @@ public class MainServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		Login login = LoginDAO.search(id, pw);
+		String password = LoginDAO.hash(pw);
+		Login login = LoginDAO.search(id, password);
 
 		String view = "/WEB-INF/view/";
 
 		HttpSession hs = request.getSession();
-		if(id.equals(login.getId()) && pw.equals(login.getPw())){
+		if(id.equals(login.getId()) && password.equals(login.getPw())){
 			/*ログインに成功したらスコープにユーザ情報を登録*/
 			hs.setAttribute("login", login);
 			view += "main.jsp";
