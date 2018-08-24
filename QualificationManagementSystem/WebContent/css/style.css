@@ -27,6 +27,12 @@ h1.top {
 }
 
 input[type="submit"].login {
+	width: 300px;
+	height: 50px;
+	font-size: 22px;
+	font-weight: bold;
+	border-radius: 25px;
+	background: #4466ff;
 	margin-top: 30px;
 }
 
@@ -43,10 +49,110 @@ input[type="text"], input[type="password"] {
 }
 
 input[type="submit"] {
-	width: 300px;
-	height: 50px;
-	font-size: 22px;
-	font-weight: bold;
-	border-radius: 25px;
-	background: #4466ff;
+
 }
+
+a {
+	text-decoration: none;
+	border: 2px solid black;
+	border-radius: 50%;
+	padding: 20px 10px;
+	width: 200px;
+}
+
+/*メインページのaタグ--------------------------*/
+#link {
+	position: relative;
+	height: 150px;
+	top: 30px;
+}
+
+#link a:nth-of-type(odd) {
+	position: absolute;
+	left: 200px;
+}
+
+#link a:nth-of-type(even) {
+	position: absolute;
+	right: 200px;
+}
+
+#link a:last-of-type {
+	position: absolute;
+	top: 240px;
+	left: 380px;
+}
+
+#link a:nth-of-type(1), a:nth-of-type(2) {
+	top: 0px;
+}
+
+#link a:nth-of-type(3), a:nth-of-type(4) {
+	top: 80px;
+}
+
+#link a:nth-of-type(5), a:nth-of-type(6) {
+	top: 160px;
+}
+/*-------------------------------------------*/
+
+#sub {
+	position: relative;
+	top: 30px;
+}
+/*一覧ページ------------------------------------*/
+.greadclass, .exmana, .moving, .main, .csv{
+	position: absolute;
+	top: 10px;
+}
+
+select {
+	vertical-align: middle;
+}
+
+.greadclass input[type="submit"], .exmana input[type="submit"] {
+	vertical-align: top;
+}
+
+.greadclass {
+	left: 10px;
+}
+
+.exmana {
+	position: absolute;
+	top: 10px;
+	left: 250px;
+}
+
+.moving {
+	left: 700px;
+}
+
+.main {
+	left: 800px;
+}
+
+.csv {
+	left: 900px;
+}
+/*-------------------------------------------*/
+
+/*テーブル-----------------------------*/
+table {
+	position: absolute;
+	top: 70px;
+	margin: 0 100px;
+	width: 80%;
+	height: 400px;
+	display: block;
+	overflow-y: scroll;
+}
+
+#exmana th, td {
+	width: 15%;
+}
+
+#student th, td {
+	width: 10%;
+}
+/*-------------------------------------*/

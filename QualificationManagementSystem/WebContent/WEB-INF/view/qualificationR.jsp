@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>資格登録 | 資格取得状況管理システム</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<h1>資格登録</h1>

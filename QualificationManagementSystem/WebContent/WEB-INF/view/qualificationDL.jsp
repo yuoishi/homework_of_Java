@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>資格一覧 | 資格取得状況管理システム</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<%
