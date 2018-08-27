@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>登録完了 | 資格取得状況管理システム</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<%
@@ -16,9 +17,11 @@
 		case "aR": flg = "アカウント"; break;
 		}
 	%>
-	<p><%= flg %>の登録が完了しました。</p>
-	<form action="Main" method="get">
-		<input type="submit" value="メインページへ">
-	</form>
+	<div id="main">
+		<p><%= flg %>の登録が完了しました。</p>
+		<form action="Main" method="get">
+			<input type="submit" value="メインページへ">
+		</form>
+	</div>
 </body>
 </html>
